@@ -10,7 +10,7 @@ import { WatchListService } from '../core/watch-list.service';
 })
 export class WatchlistPageComponent implements OnInit {
 
-  constructor(private getApiService: GetAPIService, private router: Router, private watchListServe: WatchListService) { }
+  constructor(private getApiService: GetAPIService, private router: Router, private watchListService: WatchListService) { }
 
   posterPath: string = 'https://image.tmdb.org/t/p/w154';
   genresArray: any[] = [];
@@ -22,8 +22,12 @@ export class WatchlistPageComponent implements OnInit {
       this.genresArray = result.genres;
     });
 
-    this.movieInfo = this.watchListServe.getWatchList();
+    this.movieInfo = this.watchListService.getWatchList();
 
+  }
+
+  removeFromWatchListService = (i) => {
+    this.watchListService.removeMovieFromWatchList(i);
   }
 
   goSearch() {

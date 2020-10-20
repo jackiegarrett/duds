@@ -1,11 +1,5 @@
 <app-top-nav></app-top-nav>
 
-<!-- <div class="watch-list-container">
-    <div class="movieCard">
-
-    </div>
-</div> -->
-
 <div class="movieListContainer">
     <div *ngFor="let array of movieInfo; index as i" class="movieCard">
       <div class="moviePoster">
@@ -30,11 +24,10 @@
           <div class="yearText">({{ array.release_date }})</div>
         </div>
         Genre: {{ array.genre_ids }}
-        <div class="addRemoveButton">
+        <div class="addRemoveButton" (click)="removeFromWatchListService(i)">
           <img src="./../../assets/icon-ticket.svg" />
           <p class="addOrRemoveText">Remove</p>
         </div>
       </div>
     </div>
 </div>
-  
