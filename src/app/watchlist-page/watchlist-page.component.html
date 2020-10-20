@@ -1,3 +1,40 @@
-<p>watchlist-page works!</p>
+<app-top-nav></app-top-nav>
 
-<button (click)="goSearch()">Go Home</button>
+<!-- <div class="watch-list-container">
+    <div class="movieCard">
+
+    </div>
+</div> -->
+
+<div class="movieListContainer">
+    <div *ngFor="let array of movieInfo; index as i" class="movieCard">
+      <div class="moviePoster">
+        <img
+          *ngIf="array.poster_path != null"
+          [src]="'https://image.tmdb.org/t/p/w92' + array.poster_path"
+          (click)="routeToDetails(array.id)"
+          alt=""
+        />
+        <img
+          *ngIf="array.poster_path == null"
+          src="./../../assets/default-movie.png"
+          (click)="routeToDetails(array.id)"
+          alt=""
+          height="138"
+          width="90"
+        />
+      </div>
+      <div class="movieInformation">
+        <div class="titleAndYear">
+          <div class="movieTitleText">{{ array.title }}</div>
+          <div class="yearText">({{ array.release_date }})</div>
+        </div>
+        Genre: {{ array.genre_ids }}
+        <div class="addRemoveButton">
+          <img src="./../../assets/icon-ticket.svg" />
+          <p class="addOrRemoveText">Remove</p>
+        </div>
+      </div>
+    </div>
+</div>
+  

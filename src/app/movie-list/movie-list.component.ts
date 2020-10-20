@@ -1,14 +1,16 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { GetAPIService } from '../core/get-api.service';
 import { Router } from '@angular/router';
+import { WatchListService } from '../core/watch-list.service';
 
 @Component({
   selector: 'app-movie-list',
   templateUrl: './movie-list.component.html',
   styleUrls: ['./movie-list.component.css'],
 })
+
 export class MovieListComponent implements OnInit {
-  constructor(private getApiService: GetAPIService, private router: Router) {}
+  constructor(private getApiService: GetAPIService, private router: Router, private watchListService: WatchListService) {}
 
   posterPath: string = 'https://image.tmdb.org/t/p/w154';
   genresArray: any[] = [];
@@ -21,6 +23,10 @@ export class MovieListComponent implements OnInit {
     });
 
     //getYear, pass in release date to getFullYear return the year
+  }
+
+  addToWatchListService = (i) => {
+    this.watchListService.addMovieToWatchList(this.movieInfo[i]);
   }
 
   //Uses the ID of the movie and finds the movie in the list they selected and sends their info along with it using a state
