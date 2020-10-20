@@ -40,4 +40,5 @@
     justify-content: center;
     border-radius: 4px;
     background-color: white;
+    cursor: pointer;
 }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-watchlist-page',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WatchlistPageComponent implements OnInit {
 
-  constructor() { }
+  constructor(private activatedRoute: Router, private router: Router) { }
 
   ngOnInit(): void {
+  }
+
+  goSearch() {
+    this.router.navigateByUrl('/search');
   }
 
 }

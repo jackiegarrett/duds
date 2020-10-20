@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-top-nav',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TopNavComponent implements OnInit {
 
-  constructor() { }
+  constructor(private activatedRoute: Router, private router: Router) { }
 
   ngOnInit(): void {
+  }
+
+  goSearch() {
+    this.router.navigateByUrl('/search');
+  }
+
+  goWatchList() {
+    this.router.navigateByUrl('/watch-list');
   }
 
 }
