@@ -1,0 +1,77 @@
+.movieListContainer {
+    margin-left: 40px;
+    margin-top: 100px;
+    padding-left: 320px;
+}
+
+.movieCard {
+    display: flex;
+    margin-bottom: 10px;
+    padding: 16px;
+
+    background-color: white;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+
+    font-family: 'Noto Sans', sans-serif;
+    color: #333333;
+
+    cursor: pointer;
+}
+
+/* .moviePoster {} */
+
+.movieInformation {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    width: 100%;
+    margin-left: 16px;
+}
+
+.titleAndYear {
+    display: flex;
+    align-items: baseline;
+}
+
+.movieTitleText {
+    font-size: 18px;
+    margin-right: 8px;
+}
+
+.yearText {
+    font-size: 14px;
+}
+
+.movieGenre {
+    font-size: 16px;
+    color: #666;
+}
+
+.movieRunTime {
+    font-size: 16px;
+    color: #666;
+}
+
+.addRemove-container {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.addRemove-button {
+    padding: 8px;
+    display: flex;
+    align-items: center;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.addRemove-button:hover {
+    background-color: #fea200;
+}
+
+.addOrRemoveText {
+    font-family: 'Lobster';
+    font-size: 18px;
+    padding-left: 4px;
+}
