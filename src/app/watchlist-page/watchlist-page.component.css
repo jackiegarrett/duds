@@ -86,4 +86,8 @@
         padding-left: 0px;
         padding-right: 0px;
     }
+    .movieCard {
+        width: 90%;
+        display: flex;
+    }
 }
