@@ -15,7 +15,7 @@
           <img src="./../../assets/icon-search.svg" />
         </button>
         <button id="toggleMobileImg" type="submit" (click)="mobileFilters()">
-          Filters
+          <img src="./assets/icon-filter.svg">
         </button>
       </div>
     </form>
@@ -96,8 +96,11 @@
         <div class="buttonsContainer">
           <button id="submitButton">Submit</button>
         </div>
+
       </form>
     </div>
+
   </div>
   <app-movie-list [movieInfo]="movieInfo" (nextPage)="onNextPage($event, searchByFilter)"></app-movie-list>
+
 </div>

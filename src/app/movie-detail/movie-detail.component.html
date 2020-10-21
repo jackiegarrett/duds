@@ -2,13 +2,6 @@
   <div class="nav-container-2">
     <div class="nav-container-3">
       <img class="home-logo" src="./assets/logomark-1.svg" (click)="goSearch()"/>
-      <div class="watch-list-container">
-        <img
-          src="./assets/icon-ticket.svg"
-          alt="watch list"
-          class="watch-list"
-        />
-      </div>
     </div>
   </div>
 </div>
@@ -16,6 +9,7 @@
 <div class="back" (click)="goBack()">
   <i class="material-icons">arrow_back</i><span>Back</span>
 </div>
+
 <div class="movieContainer">
   <img
     *ngIf="movieDetails.poster_path != null"
@@ -28,6 +22,7 @@
     src="./../../assets/default-movie.png"
     class="movieImage"
   />
+  
   <div class="details">
     <h3>{{ movieDetails.title }}</h3>
     <span id="releasedate" *ngIf="movieDetails.release_date !== ''">

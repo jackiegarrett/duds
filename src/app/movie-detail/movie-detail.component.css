@@ -27,16 +27,6 @@
   cursor: pointer;
 }
 
-.watch-list-container {
-  width: 40px;
-  height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 4px;
-  background-color: white;
-}
-
 .movieContainer {
   font-family: "Noto Sans", sans-serif;
   width: 80%;
@@ -45,6 +35,7 @@
   padding: 40px 80px;
   background-color: white;
   border: 1px solid rgb(1, 110, 110);
+  border-radius: 4px;
   height: 395px;
 }
 
@@ -70,7 +61,7 @@
 
 .back {
   position: absolute;
-  top: 19%;
+  top: 17%;
   left: 10%;
   color: white;
   cursor: pointer;
