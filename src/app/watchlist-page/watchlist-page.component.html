@@ -18,16 +18,21 @@
           width="90"
         />
       </div>
+
       <div class="movieInformation">
         <div class="titleAndYear">
           <div class="movieTitleText">{{ array.title }}</div>
           <div class="yearText">({{ array.release_date }})</div>
         </div>
         Genre: {{ array.genre_ids }}
-        <div class="addRemove-button" (click)="removeFromWatchListService(i)">
-          <img src="./../../assets/icon-ticket.svg" />
-          <p class="addOrRemoveText">Remove</p>
+
+        <div class="addRemove-container">
+          <div class="addRemove-button" (click)="removeFromWatchListService(i)">
+            <img src="./../../assets/icon-ticket.svg" />
+            <p class="addOrRemoveText">Remove</p>
+          </div>
         </div>
+
       </div>
     </div>
 </div>
