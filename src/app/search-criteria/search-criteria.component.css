@@ -9,6 +9,10 @@ label {
     margin-left: 8px;
 }
 
+#toggleMobileImg{
+    visibility: hidden;
+}
+
 ul {
     padding-left: 20px;
     font-family: 'Noto Sans', sans-serif;
@@ -170,4 +174,31 @@ select {
 .searchAndListContainer {
     margin-left: 200px;
     margin-right: 200px;
+}
+
+@media screen and (max-width: 600px) {
+    .filterResultsContainer{
+        position: relative;
+        display: flex;
+        justify-content: space-around;
+        flex-direction: column;
+        padding-left: 0px;
+        padding-top: 36px;
+    }
+    .searchAndListContainer{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        position: sticky;
+        width: 200px;
+        margin-left: 100px;
+        margin-right: 100px;
+    }
+     #mobileNavBar{
+        display: none;
+    }
+    #toggleMobileImg{
+        visibility: visible;
+    }
 }

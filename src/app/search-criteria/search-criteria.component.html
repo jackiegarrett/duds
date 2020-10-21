@@ -14,85 +14,90 @@
         <button id="searchButton" type="submit">
           <img src="./../../assets/icon-search.svg" />
         </button>
+        <button id="toggleMobileImg" type="submit" (click)="mobileFilters()">
+          Filters
+        </button>
       </div>
     </form>
 
-    <form #searchByFilter="ngForm" (ngSubmit)="filterSearch(searchByFilter)">
-      <h3 class="criteriaHeading">
-        <img src="./../../assets/icon-genre.svg" class="headerImage" />
-        Genre
-      </h3>
-
-      <div class="genreContainer">
-        <ol>
-          <li *ngFor="let item of genresArray; index as i">
-            <input
-              type="checkbox"
-              id="genreName"
-              [name]="item.name"
-              [value]="item.id"
-              (change)="genreCheck($event)"
-            />
-            <label [for]="item.name">{{ item.name }}</label>
-          </li>
-        </ol>
-      </div>
-
-      <div class="releaseDateContainer">
+    <div id="mobileNavBar">
+      <form #searchByFilter="ngForm" (ngSubmit)="filterSearch(searchByFilter)">
         <h3 class="criteriaHeading">
           <img src="./../../assets/icon-genre.svg" class="headerImage" />
-          Release Date
+          Genre
         </h3>
-        <div class="yearToYearContainer">
-          <select name="startYear" id="startYear" ngModel (change)="onStartYearsChange($event)">
-            <option *ngFor="let year of startYears" [value]="year + '-01-01'">
-              {{ year }} 
-            </option>
-          </select>
-          <p>to</p>
-          <select name="endYear" id="endYear" ngModel (change)="onEndYearsChange($event)">
-            <option *ngFor="let year of endYears" [value]="year + '-01-01'" >
-              {{ year }}
-            </option>
-          </select>
+
+        <div class="genreContainer">
+          <ol>
+            <li *ngFor="let item of genresArray; index as i">
+              <input
+                type="checkbox"
+                id="genreName"
+                [name]="item.name"
+                [value]="item.id"
+                (change)="genreCheck($event)"
+              />
+              <label [for]="item.name">{{ item.name }}</label>
+            </li>
+          </ol>
         </div>
-      </div>
 
-      <div class="runTimeContainer">
-        <h3 class="criteriaHeading">
-          <img src="./../../assets/icon-duration.svg" class="headerImage" />
-          Run Time
-        </h3>
-        <ul>
-          <div class="shortContainer">
-            <input
-              type="checkbox"
-              id="shortLength"
-              name="shortLength"
-              ngModel
-            />
-            <label for="shortLength">Short (< 1 hour)</label>
+        <div class="releaseDateContainer">
+          <h3 class="criteriaHeading">
+            <img src="./../../assets/icon-genre.svg" class="headerImage" />
+            Release Date
+          </h3>
+          <div class="yearToYearContainer">
+            <select name="startYear" id="startYear" ngModel (change)="onStartYearsChange($event)">
+              <option *ngFor="let year of startYears" [value]="year + '-01-01'">
+                {{ year }} 
+              </option>
+            </select>
+            <p>to</p>
+            <select name="endYear" id="endYear" ngModel (change)="onEndYearsChange($event)">
+              <option *ngFor="let year of endYears" [value]="year + '-01-01'" >
+                {{ year }}
+              </option>
+            </select>
           </div>
-          <div class="averageContainer">
-            <input
-              type="checkbox"
-              id="averageLength"
-              name="averageLength"
-              ngModel
-            />
-            <label for="averageLength">Average ( 1-2 hours)</label>
-          </div>
-          <div class="longContainer">
-            <input type="checkbox" id="longLength" name="longLength" ngModel />
-            <label for="longLength">Long (> 2 hours)</label>
-          </div>
-        </ul>
-      </div>
+        </div>
 
-      <div class="buttonsContainer">
-        <button id="submitButton">Submit</button>
-      </div>
-    </form>
+        <div class="runTimeContainer">
+          <h3 class="criteriaHeading">
+            <img src="./../../assets/icon-duration.svg" class="headerImage" />
+            Run Time
+          </h3>
+          <ul>
+            <div class="shortContainer">
+              <input
+                type="checkbox"
+                id="shortLength"
+                name="shortLength"
+                ngModel
+              />
+              <label for="shortLength">Short (< 1 hour)</label>
+            </div>
+            <div class="averageContainer">
+              <input
+                type="checkbox"
+                id="averageLength"
+                name="averageLength"
+                ngModel
+              />
+              <label for="averageLength">Average ( 1-2 hours)</label>
+            </div>
+            <div class="longContainer">
+              <input type="checkbox" id="longLength" name="longLength" ngModel />
+              <label for="longLength">Long (> 2 hours)</label>
+            </div>
+          </ul>
+        </div>
+
+        <div class="buttonsContainer">
+          <button id="submitButton">Submit</button>
+        </div>
+      </form>
+    </div>
   </div>
   <app-movie-list [movieInfo]="movieInfo" (nextPage)="onNextPage($event, searchByFilter)"></app-movie-list>
 </div>

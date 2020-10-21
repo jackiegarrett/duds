@@ -20,6 +20,7 @@ export class SearchCriteriaComponent implements OnInit {
   movieLengthBeginning;
   movieLengthEnd;
   searchForm;
+  showMobileNav: boolean = false;
 
 
   ngOnInit(): void {
@@ -157,4 +158,13 @@ export class SearchCriteriaComponent implements OnInit {
     }
     console.log(this.genresChecked);
   }
+
+  mobileFilters(){
+    if(!this.showMobileNav){
+    document.getElementById('mobileNavBar').style.display = 'inline'
+  }else{
+    document.getElementById('mobileNavBar').style.display = 'none'
+  }
+  this.showMobileNav=!this.showMobileNav
+}
 }
