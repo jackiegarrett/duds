@@ -11,7 +11,11 @@ import { HomepageComponent } from './homepage/homepage.component';
 
 @NgModule({
   declarations: [AppComponent, MovieDetailComponent, HomepageComponent],
-  imports: [CoreModule, BrowserModule, AppRoutingModule, HttpClientModule, FormsModule,
+  imports: [CoreModule,
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule,
     ReactiveFormsModule],
   providers: [],
   bootstrap: [AppComponent],
