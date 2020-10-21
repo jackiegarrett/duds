@@ -22,9 +22,16 @@
       <div class="movieInformation">
         <div class="titleAndYear">
           <div class="movieTitleText">{{ array.title }}</div>
-          <div class="yearText">({{ array.release_date }})</div>
+          <div class="yearText">({{ array.release_date | date:"yyyy"}})</div>
         </div>
-        Genre: {{ array.genre_ids }}
+
+        <!-- Genres -->
+        <p *ngIf="array.genre_ids.length > 0">
+          Genres :
+          <span
+          *ngFor="let item of array.genre_ids; index as i; last as isLast">
+            {{ genresDictionary[item] }}<span *ngIf="!isLast">,</span></span>
+        </p>
 
         <div class="addRemove-container">
           <div class="addRemove-button" (click)="removeFromWatchListService(i)">
