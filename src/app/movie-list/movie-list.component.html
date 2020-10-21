@@ -19,13 +19,21 @@
     <div class="movieInformation">
       <div class="titleAndYear">
         <div class="movieTitleText">{{ array.title }}</div>
-        <div class="yearText">({{ array.release_date }})</div>
+        <div class="yearText" *ngIf="array.release_date">({{ array.release_date | date:"yyyy"}}) </div>
       </div>
-      Genre: {{ array.genre_ids }}
-      <div class="addRemoveButton">
+
+      <p *ngIf="array.genre_ids.length > 0">
+        Genres :
+        <span
+        *ngFor="let item of array.genre_ids; index as i; last as isLast">
+          {{ genresDictionary[item] }}<span *ngIf="!isLast">,</span></span>
+      </p>
+
+      <div class="addRemove-container">
         <img src="./../../assets/icon-ticket.svg" />
         <p class="addOrRemoveText">Add</p>
       </div>
     </div>
   </div>
 </div>
+<!-- <button (click)="goToNextPage()">Next page</button> -->

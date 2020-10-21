@@ -16,6 +16,10 @@ ul {
     list-style: none;
 }
 
+ol {
+    list-style: none;
+}
+
 select {
     width: 80px;
     height: 32px;

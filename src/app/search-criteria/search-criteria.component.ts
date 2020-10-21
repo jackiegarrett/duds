@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { GetAPIService } from '../core/get-api.service';
-import { NgForm } from '@angular/forms';
+import { FormBuilder, NgForm, FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-search-criteria',
@@ -14,15 +14,22 @@ export class SearchCriteriaComponent implements OnInit {
   movieInfo: any[] = [];
   newArray: any[] = [];
   genresChecked = [];
-  years = [];
+  years: any = [];
+  startYears: any =[];
+  endYears: any =[];
   movieLengthBeginning;
   movieLengthEnd;
+  searchForm;
+
 
   ngOnInit(): void {
-    //Creates an array with year for the date range filter
-    for (var i = 1970; i <= 2020; i++) {
-      this.years.push(i);
-    }
+    this.startYears = this.populateYears();
+    this.endYears = this.populateYears();
+    // this.searchForm = this.formBuilder.group({
+    //   // searchTitle: new FormControl()
+    // });
+
+
     //On initializing gets movies and the genres with no filters or searches
     this.getApiService.getMovies().subscribe((result: any) => {
       console.log('result', result);
@@ -38,9 +45,10 @@ export class SearchCriteriaComponent implements OnInit {
 
   //Searches the titles
   titleSearch(form: NgForm) {
+    // this.searchForm = form;
     //Calls the API service
     this.getApiService
-      .getMovieSearchData(form.value.searchTitle)
+      .getMovieSearchData(form.value.searchTitle, 1)
       .subscribe((result: any) => {
         this.movieInfo = result.results;
       });
@@ -90,15 +98,50 @@ export class SearchCriteriaComponent implements OnInit {
     this.getApiService
       .getMovieFilterData(
         this.genresChecked,
-        form.value.startYear,
-        form.value.endYear,
+        form.value.startYear ,
+        form.value.endYear ,
         this.movieLengthBeginning,
         this.movieLengthEnd
       )
       .subscribe((result: any) => {
         console.log(result.results);
         this.movieInfo = result.results;
-      });
+          // filter(x => {
+        //   return x.vote_average < 5
+        // }); 
+        // if (this.movieInfo.length < 20) {
+
+        // }
+      }); 
+  }
+
+  onNextPage(pageNumber, ngForm) {
+    this.getApiService
+    .getMovieSearchData(ngForm.value.searchTitle, pageNumber)
+    .subscribe((result: any) => {
+      this.movieInfo = result.results;
+    });
+  }
+
+  onStartYearsChange(event: any) {
+    this.endYears = this.populateYears();
+    this.endYears = this.endYears.filter(x => {
+      return x > event.target.value.substring(0,4)
+    })
+  }
+
+  onEndYearsChange(event: any) {
+    this.startYears = this.populateYears();
+    this.startYears = this.startYears.filter(x => {
+      return x < event.target.value.substring(0,4)
+    })
+  }
+
+  populateYears() {
+    var years = [];
+    for (var i = 1900; i <= 2020; i++) {
+      years.push(i);
+    } return years;
   }
 
   //Checks what genres have been checked and adds it to an array, if unchecked removes it from the array

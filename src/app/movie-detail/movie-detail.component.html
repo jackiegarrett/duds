@@ -31,7 +31,7 @@
   <div class="details">
     <h3>{{ movieDetails.title }}</h3>
     <span id="releasedate" *ngIf="movieDetails.release_date !== ''">
-      {{ movieDetails.release_date }} |
+      {{ movieDetails.release_date | date:"yyyy" }} |
     </span>
     <span
       *ngFor="let array of movieDetails.genre_ids; index as i; last as isLast"

@@ -32,10 +32,10 @@ export class GetAPIService {
   };
 
   //Searches only based on the titel given
-  getMovieSearchData = (searchTerm: string): any => {
+  getMovieSearchData = (searchTerm: string, pageNumber: number): any => {
     let searchTitle = new HttpParams().set('query', searchTerm);
     return this.httpClient.get(
-      'https://api.themoviedb.org/3/search/movie?api_key=80293729e43a58b6df6bccaa278d8358&language=en-US&page=1&include_adult=false',
+      `https://api.themoviedb.org/3/search/movie?api_key=80293729e43a58b6df6bccaa278d8358&language=en-US&page=${pageNumber}&include_adult=false`,
       { params: searchTitle }
     );
   };
@@ -45,7 +45,8 @@ export class GetAPIService {
     startYear,
     endYear,
     movieLengthBeginning,
-    movieLengthEnd
+    movieLengthEnd,
+    // page
   ): any => {
     let filterParam = new HttpParams();
 

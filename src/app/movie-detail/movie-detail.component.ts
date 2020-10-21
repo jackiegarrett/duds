@@ -43,12 +43,12 @@ export class MovieDetailComponent implements OnInit {
     };
   }
 
+  goSearch() {
+    this.router.navigateByUrl('/search');
+  }
+
   goBack() {
     //Sends user back to the home page
     this.router.navigateByUrl('/');
-  }
-
-  goSearch() {
-    this.router.navigateByUrl('/search');
   }
 }

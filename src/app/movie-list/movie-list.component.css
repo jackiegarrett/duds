@@ -24,7 +24,7 @@
 .movieInformation {
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
+    justify-content: center;
     width: 100%;
     margin-left: 16px;
 }
@@ -37,6 +37,7 @@
 .movieTitleText {
     font-size: 18px;
     margin-right: 8px;
+    font-weight: bold;
 }
 
 .yearText {

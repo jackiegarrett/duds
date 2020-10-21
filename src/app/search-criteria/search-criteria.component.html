@@ -44,14 +44,14 @@
           Release Date
         </h3>
         <div class="yearToYearContainer">
-          <select name="startYear" id="startYear" ngModel>
-            <option *ngFor="let year of years" [value]="year + '-01-01'">
-              {{ year }}
+          <select name="startYear" id="startYear" ngModel (change)="onStartYearsChange($event)">
+            <option *ngFor="let year of startYears" [value]="year + '-01-01'">
+              {{ year }} 
             </option>
           </select>
           <p>to</p>
-          <select name="endYear" id="endYear" ngModel>
-            <option *ngFor="let year of years" [value]="year + '-01-01'">
+          <select name="endYear" id="endYear" ngModel (change)="onEndYearsChange($event)">
+            <option *ngFor="let year of endYears" [value]="year + '-01-01'" >
               {{ year }}
             </option>
           </select>
@@ -95,5 +95,5 @@
       </div>
     </form>
   </div>
-  <app-movie-list [movieInfo]="movieInfo"></app-movie-list>
+  <app-movie-list [movieInfo]="movieInfo" (nextPage)="onNextPage($event, searchByFilter)"></app-movie-list>
 </div>
